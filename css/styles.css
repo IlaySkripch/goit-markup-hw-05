@@ -9,6 +9,7 @@
   --cornflower: #e7e9fc;
   --cold: #f4f4fd;
   --white: #ffffff;
+  --transition: 700ms cubic-bezier(0.4, 0, 0.2, 1) 50ms;
 }
 p,
 h1,
@@ -85,7 +86,9 @@ address {
   color: var(--navy-blue);
   position: relative;
   display: block;
+  transition: color var(--transition);
 }
+
 .header-address {
   line-height: 1.5;
   font-style: normal;
@@ -99,19 +102,21 @@ address {
 .header-contact-item {
   margin-right: 40px;
 }
-.header-link:hover::after {
+.header-link.current::after {
   content: '';
-
   position: absolute;
   width: 100%;
-  height: 4px;
-  left: 0px;
-  top: 44px;
+  height: 5px;
+  left: 0;
+  top: 50px;
   background: var(--ocean);
   border-radius: 2px;
 }
 .header-tel {
   color: var(--slate);
+}
+.link-hover {
+  transition: color var(--transition);
 }
 .link-hover:focus,
 .link-hover:hover {
@@ -149,22 +154,24 @@ address {
   margin-left: auto;
 }
 .hero-btn {
-  background: var(--iris);
+  background-color: var(--iris);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.04em;
   color: var(--white);
-  /* padding: 16px 32px; */
   font-family: inherit;
   margin-top: 48px;
   min-width: 169px;
   height: 56px;
+  transition: background-color var(--transition);
+
 }
 .hero-btn:focus,
 .hero-btn:hover {
   background-color: var(--ocean);
+  
 }
 /** ===========ABOUT =========== --> */
 .about-list {
@@ -275,6 +282,8 @@ address {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color var(--transition);
+
 }
 .team-soc-link:hover,
 .team-soc-link:focus {
@@ -319,6 +328,8 @@ address {
   border: 1px solid var(--light-slate);
   border-radius: 4px;
   color: var(--light-slate);
+  transition: color var(--transition);
+
 }
 .customers-icon {
   width: 104px;
@@ -398,6 +409,8 @@ address {
   height: 40px;
   background-color: var(--cold);
   background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color var(--transition);
+
 }
 .soc-media-link:hover,
 .soc-media-link:focus {
@@ -420,6 +433,8 @@ address {
   letter-spacing: 0.04em;
   background: var(--cold);
   font-family: inherit;
+  transition: background-color var(--transition);
+
 }
 .gallery-btn:focus,
 .gallery-btn:hover {
@@ -439,6 +454,7 @@ address {
 }
 .gallery-item {
   width: calc((100% - 48px) / 3);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .gallery-item:hover,
 .about-item:focus {
@@ -469,30 +485,32 @@ address {
 }
 .gallery-link {
   display: block;
+  
 }
 .gallery-link:hover .overlay-text,
 .gallery-link:focus .overlay-text {
-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 .gallery-overlay {
   position: relative;
   overflow: hidden;
+  
 }
 .overlay-text {
-position: absolute;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-overflow: auto;
-transform: translate(0, -100%);
-transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-font-weight: 400;
-line-height: 1.5;
-letter-spacing: 0.02em;
-color: var(--cold);
-background-color: var(--iris);
-padding-top: 40px;
-padding-left: 32px;
-padding-right: 32px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  transform: translate(0, 100%);
+  transition: transform var(--transition);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--cold);
+  background-color: var(--iris);
+  padding-top: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
